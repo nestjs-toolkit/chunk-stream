@@ -1,44 +1,38 @@
 {
-  "version": "0.1.14",
-  "license": "MIT",
   "name": "@nestjs-toolkit/chunk-stream",
+  "version": "2.0.1",
   "description": "A simple chunk stream for NestJS",
   "author": "Valmir Barbosa",
-  "main": "index.js",
-  "typings": "index.d.ts",
-  "module": "chunk-stream.esm.js",
-  "files": [
-    "dist"
-  ],
-  "engines": {
-    "node": ">=14"
-  },
+  "license": "MIT",
   "scripts": {
-    "start": "tsdx watch --targe node --format cjs",
-    "build": "tsdx build --targe node --format cjs",
+    "build": "rimraf -rf dist && tsc -p tsconfig.build.json && yarn copy",
     "copy": "cp package.json README.md LICENSE dist",
-    "test": "tsdx test",
-    "lint": "tsdx lint --fix",
-    "prepare": "tsdx build --targe node --format cjs && yarn copy",
+    "prepare": "",
+    "format": "prettier --write \"{lib,tests}/**/*.ts\"",
+    "lint": "eslint \"{lib,tests}/**/*.ts\" --fix",
+    "test": "jest --config tests/jest.json",
+    "test:watch": "jest --config tests/jest.json --watch",
+    "test:cov": "jest --config tests/jest.json --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --config tests/jest.json --runInBand",
     "publish:prod": "cd dist && npm publish --access public",
-    "publish:local": "yarn publish --registry http://localhost:4873 dist"
-  },
-  "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "publish:local": "cd dist && npm publish --registry http://localhost:4873"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.5.2",
-    "typescript": "^5.0.4"
-  }
+    "@types/jest": "29.5.1",
+    "@types/node": "18.16.12",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "29.5.0",
+    "prettier": "^2.3.2",
+    "rimraf": "^5.0.1",
+    "ts-jest": "29.1.0",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "^5.0.0"
+  },
+  "packageManager": "yarn@3.5.1"
 }

@@ -7,7 +7,7 @@ import { promisify } from 'util';
 export const pipelineAsync = promisify(pipeline);
 
 export function createLinesReadStream(
-  fileStream: string | ReadStream
+  fileStream: string | ReadStream,
 ): Readable {
   const readStream = new Readable({
     objectMode: false,
@@ -20,7 +20,7 @@ export function createLinesReadStream(
   const readLineStream = readline.createInterface({ input: inputStream });
 
   readLineStream
-    .on('line', row => {
+    .on('line', (row) => {
       readStream.push(row);
     })
     .on('close', () => {
