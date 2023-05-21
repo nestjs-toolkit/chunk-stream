@@ -1,5 +1,5 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.9",
   "license": "MIT",
   "name": "@nestjs-toolkit/chunk-stream",
   "description": "A simple chunk stream for NestJS",
@@ -7,18 +7,21 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "module": "chunk-stream.esm.js",
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=14"
   },
   "scripts": {
     "start": "tsdx watch --targe node --format cjs",
-    "build": "tsdx build --targe node --format cjs && yarn copy",
+    "build": "tsdx build --targe node --format cjs",
     "copy": "cp package.json README.md LICENSE dist",
     "test": "tsdx test",
     "lint": "tsdx lint --fix",
-    "prepare": "tsdx build",
+    "prepare": "tsdx build --targe node --format cjs && yarn copy",
     "publish:prod": "cd dist && npm publish --access public",
-    "publish:local": "cd dist && yarn publish --registry http://localhost:4873"
+    "publish:local": "yarn publish --registry http://localhost:4873 dist"
   },
   "peerDependencies": {},
   "husky": {
