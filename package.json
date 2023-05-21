@@ -1,7 +1,8 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "name": "@nestjs-toolkit/chunk-stream",
+  "description": "A simple chunk stream for NestJS",
   "author": "Valmir Barbosa",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
