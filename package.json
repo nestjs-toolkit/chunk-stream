@@ -1,5 +1,5 @@
 {
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "MIT",
   "name": "@nestjs-toolkit/chunk-stream",
   "description": "A simple chunk stream for NestJS",
