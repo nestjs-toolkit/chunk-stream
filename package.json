@@ -1,15 +1,12 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "name": "@nestjs-toolkit/chunk-stream",
   "description": "A simple chunk stream for NestJS",
   "author": "Valmir Barbosa",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "module": "dist/chunk-stream.esm.js",
-  "files": [
-    "dist"
-  ],
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "module": "chunk-stream.esm.js",
   "engines": {
     "node": ">=14"
   },
